@@ -26,8 +26,13 @@ public class FemettanDice {
           just enter 'exit' and then press the enter key.
           This Kills The Crab. :)
           """);
+        continue;
       }
-      System.out.println(numbers[new Random().nextInt(numbers.length)]);
+      if(!curr.isBlank()) {
+        System.out.print("enter 'help' for help, or 'exit' to kill the programme. Oh, and this is your result: ");
+      }
+      System.out.print(numbers[new Random().nextInt(numbers.length)]);
+      System.out.println();
     }
   }
 }
