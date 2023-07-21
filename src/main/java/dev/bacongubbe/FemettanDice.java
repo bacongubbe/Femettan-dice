@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class FemettanDice {
 
   private static final String[] FRAMES = new String[]{"⚀", "⚁", "⚂", "⚃", "⚄", "⚅"};
-  private static final String[] CATEGORIES = new String[]{"1", "2", "3", "4", "★"};
+  private static final String[] CATEGORIES = new String[]{"1", "2", "3", "4", "★", "★"};
   private static final Scanner SCANNER = new Scanner(System.in);
 
   public static void main(String[] args) {
@@ -30,21 +30,22 @@ public class FemettanDice {
           """);
         continue;
       }
-      String message = "Rolling: ";
+      String message = "";
       if (!curr.isBlank()) {
         message = "Enter 'help' for help, or 'exit' to kill the programme. For now, let's roll the dice!: ";
       }
       int animationFrames = 20;
       int animationDelayMs = 150;
+      System.out.println(message);
       for (int frame = 0; frame < animationFrames; frame++) {
-        System.out.print("\r" + message + FRAMES[frame % FRAMES.length]);
+        System.out.print("\r" + "Rolling: " + FRAMES[frame % FRAMES.length]);
         try {
           Thread.sleep(animationDelayMs);
         } catch (InterruptedException e) {
           e.printStackTrace();
         }
       }
-      System.out.print("\r" + message + CATEGORIES[new Random().nextInt(CATEGORIES.length)] + "\n");
+      System.out.print("\r" + "Rolling: " + CATEGORIES[new Random().nextInt(CATEGORIES.length)] + "\n");
     }
   }
 }
